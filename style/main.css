@@ -47,6 +47,7 @@ h1.title {
 table {
 	display: inline-block;
 	float: center;
+	border-spacing: 5px;
 }
 
 td {
