@@ -1,0 +1,95 @@
+@import url(fonts.css);
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background: rgb(247, 247, 247);
+	font-family: "Bahnschrift";
+	text-align: center;
+}
+
+body {
+	margin-top: 44px;
+	overflow: hidden;
+	height: 100%;
+}
+
+.wrapper {
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+h1.title {
+	font-size: 64px;
+	font-weight: bolder;
+	margin: 0;
+	color: rgb(91, 91, 91);
+}
+
+.score-container {
+	background: rgba(91, 91, 91, 0.85);
+	border-radius: 5px;
+}
+
+.score-label {
+	font-size: 17px;
+	color: rgba(247, 247, 247, 0.6);
+}
+
+.score {
+	font-size: 24px;
+	font-weight: bold;
+	color: rgb(247, 247, 247);
+}
+
+table {
+	display: inline-block;
+	float: center;
+}
+
+td {
+	width: 100px;
+	height: 100px;
+	font-size: 32px;
+	font-weight: bold;
+	color: rgb(247, 247, 247);
+	border-radius: 5px;
+}
+
+.header, .score-container {
+	height: 77px;
+}
+
+.message {
+	color: rgb(91, 91, 91);
+	font-size: 24px;
+}
+
+.credits {
+	color: rgb(91, 91, 91);
+	font-size: 12px;
+}
+
+.organizer {
+	height: 22px;
+}
+
+.newgame-button {
+	display: inline-block;
+	background: rgba(91, 91, 91, 0.85);
+	color: rgba(247, 247, 247, 0.6);
+	padding: 16px;
+	border-radius: 5px;
+	text-align: center;
+	transition: ease 100ms;
+}
+
+.newgame-button:hover {
+	color: rgb(247, 247, 247);
+}
+
+.credits {
+	margin: 22px;
+}
