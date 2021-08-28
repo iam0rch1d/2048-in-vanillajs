@@ -10,9 +10,9 @@ window.onload = function() {
 	var isEnd = false;
 	var isMoved = false;
 	var cellId = [["00", "01", "02", "03"],
-				  ["10", "11", "12", "13"],
-				  ["20", "21", "22", "23"],
-				  ["30", "31", "32", "33"]];
+	              ["10", "11", "12", "13"],
+	              ["20", "21", "22", "23"],
+	              ["30", "31", "32", "33"]];
 	var winningBorder = 2048;
 
 	init();
@@ -20,9 +20,9 @@ window.onload = function() {
 	function init() {
 		// 초기화
 		board = [[0, 0, 0, 0],
-				 [0, 0, 0, 0],
-				 [0, 0, 0, 0],
-				 [0, 0, 0, 0]];
+		         [0, 0, 0, 0],
+		         [0, 0, 0, 0],
+		         [0, 0, 0, 0]];
 		score = 0;
 		messageElement.innerHTML = "";
 		
@@ -90,14 +90,14 @@ window.onload = function() {
 	}
 
 	function moveBoard(direction) {
-		// [direction] 0: 왼쪽, 1: 아래쪽, 2: 위쪽, 3: 오른쪽
+		// @direction - [0]: 왼쪽, [1]: 아래쪽, [2]: 위쪽, [3]: 오른쪽
 		if (direction == 0) {
 			// 게임판 시계방향으로 90도 기울이기 -> 숫자 칸들 아래로 이동 -> 기울인 거 원위치 = 왼쪽으로 이동
 			rotateBoard(1);
 			dropCells();
 			rotateBoard(3);
 		} else if (direction == 1) {
-			// 그냥 숫자 칸들 아래로 이동
+			// 그냥 숫자 칸들 아              
 			dropCells();
 		} else if (direction == 2) {
 			// 게임판 180도 기울이기 -> 숫자 칸들 아래로 이동 -> 기울인 거 원위치 = 위쪽으로 이동
@@ -121,9 +121,9 @@ window.onload = function() {
 		// 숫자 칸들을 아래쪽 칸부터 더 이상 이동할 수 없을 때까지 아래로 이동
 		// 한 번 합쳐진 칸이 다시 합쳐지지 않도록 isCellMerged로 체크
 		let isCellMerged = [[false, false, false, false],
-							[false, false, false, false],
-							[false, false, false, false],
-							[false, false, false, false]];
+		                    [false, false, false, false],
+		                    [false, false, false, false],
+		                    [false, false, false, false]];
 
 		isMoved = false;
 
@@ -160,9 +160,9 @@ window.onload = function() {
 	function rotateBoard(n) {
 		// 게임판을 시계방향으로 n번 90도 회전
 		let boardTemp = [[0, 0, 0, 0],
-						 [0, 0, 0, 0],
-						 [0, 0, 0, 0],
-						 [0, 0, 0, 0]];
+		                 [0, 0, 0, 0],
+		                 [0, 0, 0, 0],
+		                 [0, 0, 0, 0]];
 
 		while (n--) {
 			for (let i = 0; i < 4; i++) {
