@@ -201,7 +201,7 @@ window.onload = function() {
 
 	function styleCells() {
 		// 칸 스타일링
-		let fontSizes = [44, 40, 36, 32, 28, 24];
+		let fontSizes = [40, 36, 32, 28, 24, 20];
 
 		for (let i = 0; i < 4; i++) {
 			for (let j = 0; j < 4; j++) {
@@ -211,108 +211,126 @@ window.onload = function() {
 					case 0: {
 						// 빈 칸
 						cellElement.style.backgroundColor = "rgb(224, 224, 224)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(224, 224, 224, 0)"
 
 						break;
 					}					
 					case 2: {
 						// 2 ^ 1
 						cellElement.style.backgroundColor = "rgb(242, 113, 113)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(242, 113, 113, 0)"
 
 						break;
 					}
 					case 4: {
 						// 2 ^ 2
 						cellElement.style.backgroundColor = "rgb(242, 171, 113)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 8: {
 						// 2 ^ 3
 						cellElement.style.backgroundColor = "rgb(242, 230, 113)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 16: {
 						// 2 ^ 4
 						cellElement.style.backgroundColor = "rgb(197, 242, 113)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 32: {
 						// 2 ^ 5
 						cellElement.style.backgroundColor = "rgb(138, 242, 113)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 64: {
 						// 2 ^ 6
 						cellElement.style.backgroundColor = "rgb(113, 242, 146)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 128: {
 						// 2 ^ 7
 						cellElement.style.backgroundColor = "rgb(113, 242, 203)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 256: {
 						// 2 ^ 8
 						cellElement.style.backgroundColor = "rgb(113, 223, 242)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 512: {
 						// 2 ^ 9
 						cellElement.style.backgroundColor = "rgb(113, 193, 242)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 1024: {
 						// 2 ^ 10
 						cellElement.style.backgroundColor = "rgb(119, 113, 242)";
+						cellElement.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)"
 
 						break;
 					}
 					case 2048: {
 						// 2 ^ 11
 						cellElement.style.backgroundColor = "rgb(177, 113, 242)";
+						cellElement.style.boxShadow = "0 0 16px 5px rgba(177, 113, 242, 0.7)"
 
 						break;
 					}
 					case 4096: {
 						// 2 ^ 12
 						cellElement.style.backgroundColor = "rgb(207, 96, 240)";
+						cellElement.style.boxShadow = "0 0 16px 5px rgba(207, 96, 240, 0.7)"
 
 						break;
 					}
 					case 8192: {
 						// 2 ^ 13
 						cellElement.style.backgroundColor = "rgb(239, 80, 242)";
+						cellElement.style.boxShadow = "0 0 16px 5px rgba(239, 80, 242, 0.7)"
 
 						break;
 					}
 					case 16384: {
 						// 2 ^ 14
 						cellElement.style.backgroundColor = "rgb(238, 64, 182)";
+						cellElement.style.boxShadow = "0 0 16px 5px rgba(238, 64, 182, 0.7)"
 
 						break;
 					}
 					case 32768: {
 						// 2 ^ 15
 						cellElement.style.backgroundColor = "rgb(236, 47, 122)";
+						cellElement.style.boxShadow = "0 0 16px 5px rgba(236, 47, 122, 0.7)"
 
 						break;
 					}
 					case 65536: {
 						// 2 ^ 16
 						cellElement.style.backgroundColor = "rgb(235, 31, 56)";
+						cellElement.style.boxShadow = "0 0 16px 5px rgba(235, 31, 56, 0.7)"
 
 						break;
 					}
 					default: {
 						// 2 ^ 17 (65536부터 4까지 늘어선 상태에서 4가 나오면 가능)
 						cellElement.style.backgroundColor = "rgb(0, 0, 0)";
+						cellElement.style.boxShadow = "0 0 16px 5px rgba(0, 0, 0, 0.7)"
 
 						break;
 					}
