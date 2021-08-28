@@ -1,9 +1,12 @@
 window.onload = function() {
+	var gameContainerElement = document.getElementsByClassName("game-container")[0];
 	var scoreElement = document.getElementsByClassName("score")[0];
 	var messageElement = document.getElementsByClassName("message")[0];
 	var newgameButtonElement = document.getElementsByClassName("newgame-button")[0];
 	var board;
 	var score;
+	var touchstartClientX;
+	var touchstartClientY;
 	var isEnd = false;
 	var isMoved = false;
 	var cellId = [["00", "01", "02", "03"],
@@ -24,6 +27,8 @@ window.onload = function() {
 		messageElement.innerHTML = "";
 		
 		document.addEventListener("keydown", onKeydown, false);
+		gameContainerElement.addEventListener("touchstart", onTouchstart, false);
+		gameContainerElement.addEventListener("touchend", onTouchend, false);
 		newgameButtonElement.addEventListener("click", init, false);
 		generateCell();
 		generateCell();
@@ -55,23 +60,56 @@ window.onload = function() {
 		// 키보드 입력
 		if (isEnd) return;
 
-		if (e["code"] == "ArrowLeft") {
+		if (e["code"] == "ArrowLeft") moveBoard(0);
+		else if (e["code"] == "ArrowDown") moveBoard(1);
+		else if (e["code"] == "ArrowUp") moveBoard(2);
+		else if (e["code"] == "ArrowRight") moveBoard(3);
+	}
+
+	function onTouchstart(e) {
+		// 터치 입력 - 터치 시작
+		if (e.targetTouches.length > 1) return;  // 멀티 터치 방지
+
+		touchstartClientX = e.touches[0].clientX;
+		touchstartClientY = e.touches[0].clientY;
+	}
+
+	function onTouchend(e) {
+		if (e.targetTouches.length > 0) return;  // 아직도 터치 중일 경우 함수 수행 X
+
+		let touchendClientX = e.changedTouches[0].clientX;
+		let touchendClientY = e.changedTouches[0].clientY;
+		let dx = touchendClientX - touchstartClientX;
+		let dy = touchendClientY - touchstartClientY;
+		let distanceThreshold = 100;
+
+		if (dx * dx + dy * dy > distanceThreshold) {
+			// 슬라이딩한 거리가 충분할 경우 이동
+			moveBoard(Math.abs(dy) > Math.abs(dx) ? (dy > 0 ? 1 : 2) : (dx > 0 ? 3 : 0));
+		}
+	}
+
+	function moveBoard(direction) {
+		// [direction] 0: 왼쪽, 1: 아래쪽, 2: 위쪽, 3: 오른쪽
+		if (direction == 0) {
 			// 게임판 시계방향으로 90도 기울이기 -> 숫자 칸들 아래로 이동 -> 기울인 거 원위치 = 왼쪽으로 이동
 			rotateBoard(1);
 			dropCells();
 			rotateBoard(3);
-		} else if (e["code"] == "ArrowUp") {
+		} else if (direction == 1) {
+			// 그냥 숫자 칸들 아래로 이동
+			dropCells();
+		} else if (direction == 2) {
 			// 게임판 180도 기울이기 -> 숫자 칸들 아래로 이동 -> 기울인 거 원위치 = 위쪽으로 이동
 			rotateBoard(2);
 			dropCells();
-			rotateBoard(2);			
-		} else if (e["code"] == "ArrowRight") {
+			rotateBoard(2);	
+		} else if (direction == 3) {
 			// 게임판 반시계방향으로 90도 기울이기 -> 숫자 칸들 아래로 이동 -> 기울인 거 원위치 = 오른쪽으로 이동
 			rotateBoard(3);
 			dropCells();
-			rotateBoard(1);			
-		} else if (e["code"] == "ArrowDown") dropCells();
-		else return;
+			rotateBoard(1);	
+		}
 
 		if (isMoved) {
 			generateCell();
