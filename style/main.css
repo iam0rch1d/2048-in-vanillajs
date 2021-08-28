@@ -1,66 +1,87 @@
 @import url(fonts.css);
 
-html, body {
-	margin: 0;
+body {
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	user-select: none;
+	margin-top: 50px;
 	padding: 0;
+	overflow: hidden;
+	height: 100%;
 	background: rgb(247, 247, 247);
 	font-family: "Bahnschrift";
 	text-align: center;
 }
 
-body {
-	margin-top: 44px;
-	overflow: hidden;
-	height: 100%;
+.game-container {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 100px 100px 100px 100px;
+	grid-template-rows: 70px 25px 100px 100px 100px 100px;
+	grid-template-areas:
+		"title-container title-container score-container score-container"
+		"organizer organizer organizer organizer"
+		"cell cell cell cell"
+		"cell cell cell cell"
+		"cell cell cell cell"
+		"cell cell cell cell";
+	grid-gap: 5px;
 }
 
-.wrapper {
-	-ms-user-select: none;
-	-moz-user-select: -moz-none;
-	-webkit-user-select: none;
-	user-select: none;
+.title-container {
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 
-h1.title {
+.title {
 	font-size: 64px;
-	font-weight: bolder;
+	font-weight: 600;
 	margin: 0;
 	color: rgb(91, 91, 91);
 }
 
 .score-container {
+	display: grid;
+	place-items: center;
 	background: rgba(91, 91, 91, 0.85);
 	border-radius: 5px;
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-template-areas:
+		"score-label"
+		"score";
 }
 
 .score-label {
+	margin-top: 5px;
 	font-size: 17px;
+	font-weight: 300;
 	color: rgba(247, 247, 247, 0.6);
 }
 
 .score {
+	margin-bottom: 5px;
 	font-size: 24px;
-	font-weight: bold;
+	font-weight: 600;
 	color: rgb(247, 247, 247);
 }
 
-table {
-	display: inline-block;
-	float: center;
-	border-spacing: 5px;
+.organizer {
+	height: 22px;
+	grid-column-start: 1;
+	grid-column-end: 5;
 }
 
-td {
+.cell {
+	display: grid;
+	place-items: center;
 	width: 100px;
 	height: 100px;
-	font-size: 32px;
-	font-weight: bold;
-	color: rgb(247, 247, 247);
 	border-radius: 5px;
-}
-
-.header, .score-container {
-	height: 77px;
+	font-size: 32px;
+	font-weight: 600;
+	color: rgb(247, 247, 247);
 }
 
 .message {
@@ -73,10 +94,6 @@ td {
 	font-size: 12px;
 }
 
-.organizer {
-	height: 22px;
-}
-
 .newgame-button {
 	display: inline-block;
 	background: rgba(91, 91, 91, 0.85);
@@ -84,6 +101,7 @@ td {
 	padding: 16px;
 	border-radius: 5px;
 	text-align: center;
+	font-size: 17px;
 	transition: ease 100ms;
 }
 
