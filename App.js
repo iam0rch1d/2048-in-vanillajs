@@ -280,6 +280,7 @@ window.onload = function() {
 					}
 				}
 
+				// 칸의 숫자의 자리수에 따라 폰트 크기를 다르게
 				if (board[i][j] != 0) cellElement.style.fontSize = fontSizes[parseInt(Math.log10(board[i][j]))] + "px";
 			}
 		}
